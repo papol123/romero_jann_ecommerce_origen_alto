@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Origen Alto · Café de especialidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   ORIGEN ALTO — Identidad visual
+   Negocio: café de especialidad colombiano
+   Público: universitarios y jóvenes profesionales de Bogotá
+   Estilo: cálido, artesanal y moderno
+   Paleta: espresso, crema, terracota y verde cafetal
+========================================================= */
+
+:root {
+  --espresso: #2b1d16;
+  --tostado: #4a3226;
+  --crema: #f6efe6;
+  --papel: #fffaf4;
+  --terracota: #c8643b;
+  --terracota-osc: #a84f2c;
+  --cafetal: #5f7a4e;
+  --texto: #3a2a21;
+  --suave: #8a7466;
+  --borde: #e7dccf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Inter", system-ui, Arial, sans-serif;
+  background-color: var(--crema);
+  color: var(--texto);
+  padding: 0 20px 50px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Encabezado */
+
+.marca {
+  background: var(--espresso);
+  color: var(--crema);
+  margin: 0 -20px;
+  padding: 46px 20px 34px;
+}
+
+.marca .sello {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d9b48f;
+  border: 1px solid #6b4c3b;
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(34px, 6vw, 54px);
+  color: var(--papel);
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+}
+
+.slogan {
+  color: #e6d3c0;
+  font-size: 18px;
+  margin: 0 0 6px;
+  font-style: italic;
+}
+
+.autor {
+  color: #b99a84;
+  font-size: 14px;
+  margin: 10px 0 0;
+}
+
+.autor strong { color: var(--papel); font-weight: 600; }
+
+/* Beneficios */
+
+.beneficios {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background-color: var(--terracota);
+  color: white;
+  padding: 14px;
+  margin: 0 -20px 34px;
+}
+
+.beneficios span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.seccion-titulo {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 28px;
+  color: var(--espresso);
+  margin: 0 0 4px;
+}
+
+.seccion-sub {
+  color: var(--suave);
+  margin: 0 0 24px;
+}
+
+/* Catálogo */
+
+#productos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.producto {
+  border: 1px solid var(--borde);
+  background: var(--papel);
+  border-radius: 16px;
+  padding: 12px 12px 18px;
+  width: 240px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(43, 29, 22, .12);
+}
+
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.producto h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 19px;
+  color: var(--espresso);
+  margin: 14px 4px 6px;
+}
+
+.descripcion {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--suave);
+  min-height: 62px;
+  margin: 0 4px;
+  flex-grow: 1;
+}
+
+.precio {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--terracota-osc);
+  margin: 12px 4px 10px;
+}
+
+/* Botones */
+
+.producto button {
+  background-color: var(--cafetal);
+  border: none;
+  color: white;
+  padding: 11px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: 600 14px "Inter", sans-serif;
+  width: 100%;
+}
+
+.producto button:hover { background-color: #4c6440; }
+
+/* Carrito */
+
+.carrito {
+  margin-top: 44px;
+  padding: 26px;
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  text-align: left;
+  display: inline-block;
+  width: min(460px, 100%);
+}
+
+.carrito h2 {
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--espresso);
+  margin-top: 0;
+}
+
+#lista-carrito {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#lista-carrito li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--borde);
+  font-size: 15px;
+}
+
+#lista-carrito li.vacio {
+  color: var(--suave);
+  justify-content: center;
+  border: none;
+  font-style: italic;
+}
+
+.item-nombre { flex: 1; }
+.item-sub { font-weight: 600; white-space: nowrap; }
+
+.cantidad {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cantidad button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--borde);
+  background: white;
+  color: var(--espresso);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.cantidad button:hover { background: var(--crema); }
+
+.resumen {
+  border-top: 2px solid var(--espresso);
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+.resumen p { margin: 6px 0; }
+
+.total {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--espresso);
+}
+
+.vaciar,
+.finalizar {
+  border: none;
+  color: white;
+  padding: 11px 16px;
+  margin-top: 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: 600 14px "Inter", sans-serif;
+}
+
+.vaciar { background-color: var(--tostado); }
+
+.finalizar {
+  background-color: var(--terracota);
+  margin-left: 6px;
+}
+
+.vaciar:hover,
+.finalizar:hover { opacity: 0.88; }
+
+footer {
+  margin-top: 40px;
+  font-size: 13px;
+  color: var(--suave);
+}
+
+@media (max-width: 560px) {
+  .producto { width: 100%; }
+  .finalizar { margin-left: 0; }
+  .vaciar, .finalizar { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="marca">
+  <span class="sello">☕ Café de especialidad · Hecho en Colombia</span>
+  <h1>Origen Alto</h1>
+  <p class="slogan">Del cafetal a tu taza, sin escalas.</p>
+  <p class="autor">Tienda creada por <strong>Jann Romero</strong></p>
+</header>
+
+<div class="beneficios">
+  <span>🚚 Envío gratis en Bogotá</span>
+  <span>🌱 Directo de fincas colombianas</span>
+  <span>🔥 Tostado cada semana</span>
+  <span>🔒 Compra segura</span>
+</div>
+
+<h2 class="seccion-titulo">Nuestro catálogo</h2>
+<p class="seccion-sub">Cafés de origen y todo lo que necesitas para prepararlos en casa.</p>
+
+<div id="productos"></div>
+
+<div class="carrito">
+  <h2>🧾 Tu pedido</h2>
+
+  <ul id="lista-carrito"></ul>
+
+  <div class="resumen">
+    <p>Envío: <strong>Gratis</strong></p>
+    <p class="total">Total: <span id="total">$ 0</span></p>
+  </div>
+
+  <button class="vaciar" onclick="vaciarCarrito()">🧼 Vaciar pedido</button>
+  <button class="finalizar" onclick="finalizarCompra()">✅ Finalizar compra</button>
+</div>
+
+<footer>
+  Origen Alto © 2026 · Proyecto académico de eCommerce · Jann Romero
+</footer>
+
+<script>
+/* =========================================================
+   eSHOPPER
+   Universitarios y jóvenes profesionales de Bogotá (18–30 años)
+   que toman café a diario, estudian o trabajan desde casa y
+   quieren pasar del café de sobre a uno de mejor calidad, a un
+   precio razonable y con entrega rápida.
+========================================================= */
+
+/* Ilustraciones SVG propias: cargan siempre, sin depender de enlaces externos */
+function ilustracion(icono, fondo1, fondo2) {
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="${fondo1}"/>
+          <stop offset="1" stop-color="${fondo2}"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="260" fill="url(#g)"/>
+      <circle cx="330" cy="40" r="70" fill="#ffffff" opacity=".08"/>
+      <circle cx="60" cy="230" r="90" fill="#ffffff" opacity=".06"/>
+      <text x="200" y="160" font-size="110" text-anchor="middle">${icono}</text>
+    </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+const productos = [
+  {
+    id: 1,
+    nombre: "Café Huila 340 g",
+    descripcion: "Grano entero de origen Huila. Notas a panela, frutos rojos y chocolate.",
+    precio: 38000,
+    imagen: ilustracion("☕", "#4a3226", "#c8643b")
+  },
+  {
+    id: 2,
+    nombre: "Café Sierra Nevada 340 g",
+    descripcion: "Cultivado en la Sierra Nevada. Cuerpo medio, notas a cacao y nuez.",
+    precio: 42000,
+    imagen: ilustracion("⛰️", "#2b1d16", "#5f7a4e")
+  },
+  {
+    id: 3,
+    nombre: "Café Nariño Molido 250 g",
+    descripcion: "Molienda media para greca o filtro. Acidez brillante y notas cítricas.",
+    precio: 32000,
+    imagen: ilustracion("🍊", "#6b3f2a", "#e0a35e")
+  },
+  {
+    id: 4,
+    nombre: "Prensa Francesa 600 ml",
+    descripcion: "Vidrio de borosilicato y filtro de acero. Rinde 3 tazas por preparación.",
+    precio: 79000,
+    imagen: ilustracion("🫖", "#3a2a21", "#8a7466")
+  },
+  {
+    id: 5,
+    nombre: "Mug Cerámica Origen",
+    descripcion: "Taza artesanal de 350 ml hecha en Ráquira, Boyacá. Apta para microondas.",
+    precio: 35000,
+    imagen: ilustracion("🏺", "#a84f2c", "#e7c9a9")
+  },
+  /* ---- Productos nuevos ---- */
+  {
+    id: 6,
+    nombre: "Kit Barista en Casa",
+    descripcion: "Gotero V60, 40 filtros de papel y café Huila 250 g. Ideal para empezar.",
+    precio: 129000,
+    imagen: ilustracion("🎁", "#2b1d16", "#c8643b")
+  },
+  {
+    id: 7,
+    nombre: "Cold Brew Concentrado 1 L",
+    descripcion: "Extraído en frío por 18 horas. Mezcla con agua o leche. Rinde 8 vasos.",
+    precio: 46000,
+    imagen: ilustracion("🧊", "#3c5a4a", "#9fb88c")
+  },
+  {
+    id: 8,
+    nombre: "Molino Manual Cerámico",
+    descripcion: "Muelas de cerámica con 18 niveles de molienda. Portátil y silencioso.",
+    precio: 95000,
+    imagen: ilustracion("⚙️", "#4a3226", "#b99a84")
+  }
+];
+
+/* ==============================
+   CARRITO
+================================ */
+
+const carrito = [];
+
+const contenedorProductos = document.getElementById("productos");
+const listaCarrito = document.getElementById("lista-carrito");
+const totalCarrito = document.getElementById("total");
+
+function formatoCOP(valor) {
+  return valor.toLocaleString("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: 0
+  });
+}
+
+/* ==============================
+   MOSTRAR PRODUCTOS
+================================ */
+
+function mostrarProductos() {
+  contenedorProductos.innerHTML = "";
+
+  productos.forEach(prod => {
+    const div = document.createElement("div");
+    div.className = "producto";
+
+    div.innerHTML = `
+      <img src="${prod.imagen}" alt="${prod.nombre}">
+      <h3>${prod.nombre}</h3>
+      <p class="descripcion">${prod.descripcion}</p>
+      <p class="precio">${formatoCOP(prod.precio)}</p>
+      <button onclick="agregarAlCarrito(${prod.id})">Agregar al pedido</button>
+    `;
+
+    contenedorProductos.appendChild(div);
+  });
+}
+
+/* ==============================
+   AGREGAR AL CARRITO
+================================ */
+
+function agregarAlCarrito(id) {
+  const productoExistente = carrito.find(p => p.id === id);
+
+  if (productoExistente) {
+    productoExistente.cantidad++;
+  } else {
+    const producto = productos.find(p => p.id === id);
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+
+  actualizarCarrito();
+}
+
+/* ==============================
+   MODIFICAR CANTIDADES
+================================ */
+
+function cambiarCantidad(id, cambio) {
+  const item = carrito.find(p => p.id === id);
+  if (!item) return;
+
+  item.cantidad += cambio;
+
+  if (item.cantidad <= 0) {
+    carrito.splice(carrito.indexOf(item), 1);
+  }
+
+  actualizarCarrito();
+}
+
+/* ==============================
+   ACTUALIZAR CARRITO
+================================ */
+
+function actualizarCarrito() {
+  listaCarrito.innerHTML = "";
+
+  let total = 0;
+  let totalItems = 0;
+
+  if (carrito.length === 0) {
+    listaCarrito.innerHTML =
+      `<li class="vacio">Tu pedido está vacío. ¡Elige tu café!</li>`;
+  }
+
+  carrito.forEach(item => {
+    const subtotal = item.precio * item.cantidad;
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <span class="item-nombre">${item.nombre}</span>
+      <span class="cantidad">
+        <button onclick="cambiarCantidad(${item.id}, -1)" aria-label="Quitar uno">−</button>
+        <span>${item.cantidad}</span>
+        <button onclick="cambiarCantidad(${item.id}, 1)" aria-label="Agregar uno">+</button>
+      </span>
+      <span class="item-sub">${formatoCOP(subtotal)}</span>
+    `;
+
+    listaCarrito.appendChild(li);
+
+    total += subtotal;
+    totalItems += item.cantidad;
+  });
+
+  totalCarrito.textContent = formatoCOP(total);
+  actualizarTituloCarrito(totalItems);
+}
+
+/* ==============================
+   CONTADOR DEL CARRITO
+================================ */
+
+function actualizarTituloCarrito(cantidad) {
+  document.querySelector(".carrito h2").textContent =
+    `🧾 Tu pedido (${cantidad})`;
+}
+
+/* ==============================
+   VACIAR CARRITO
+================================ */
+
+function vaciarCarrito() {
+  if (carrito.length === 0) {
+    alert("🛒 Tu pedido ya está vacío.");
+    return;
+  }
+
+  if (confirm("¿Seguro que quieres vaciar tu pedido?")) {
+    carrito.length = 0;
+    actualizarCarrito();
+  }
+}
+
+/* ==============================
+   FINALIZAR COMPRA
+================================ */
+
+function finalizarCompra() {
+  if (carrito.length === 0) {
+    alert("🛒 Tu pedido está vacío. Agrega productos antes de finalizar la compra.");
+    return;
+  }
+
+  const total = carrito.reduce((suma, p) => suma + p.precio * p.cantidad, 0);
+
+  alert(
+    "☕ ¡Pedido simulado confirmado!\n\n" +
+    "Total pagado: " + formatoCOP(total) + "\n\n" +
+    "En un eCommerce real, ahora entrarían en acción " +
+    "el backend, la pasarela de pago y la logística de envío."
+  );
+
+  carrito.length = 0;
+  actualizarCarrito();
+}
+
+/* ==============================
+   INICIAR TIENDA
+================================ */
+
+mostrarProductos();
+actualizarCarrito();
+</script>
+
+</body>
+</html>
